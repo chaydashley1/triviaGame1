@@ -34,13 +34,14 @@ $("#start").on("click", function() {
     run();
    
     // Question 1 ------ NO ENTIENDO DESPUES DEL INPUT LO QUE HACE
-    $("#question1").html("<h2>" + questions[0].question + "</h2>");
-    $("#answer1").html("<input type='radio' name='answer1' " + "<label>" + questions[0].namesAnswer[0] + "</label>"
-        + "<input type='radio' name='answer1' " + "<label>" + questions[0].namesAnswer[1] + "</label>"
-        + "<input type='radio' name='answer1' " + "<label>" + questions[0].namesAnswer[2] + "</label><br><br>"
-    );
-
-
+    for(i = 0; i <= questions.length; i++)
+    {
+        $("#question"+(i+1)).html("<h2>" + questions[i].question + "</h2>");
+        $("#answer"+(i+1)).html("<input type='radio' name='answer1' " + "<label>" + questions[i].namesAnswer[i] + "</label>"
+            + "<input type='radio' name='answer1' " + "<label>" + questions[i].namesAnswer[1] + "</label>"
+            + "<input type='radio' name='answer1' " + "<label>" + questions[i].namesAnswer[2] + "</label><br><br>"
+        );
+    }
   
     // enviarInfo
     $("#submit").html("<button id='done' class='btn'>Done!</button>");
