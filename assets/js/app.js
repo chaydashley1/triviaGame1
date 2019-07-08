@@ -62,8 +62,8 @@ $("#start").on("click", function() {
 
 // funcion del countdown del tiempo (no se si esta bien)
     function run() {
-    // clearInterval(intervalId);
-    // intervalId = setInterval(decrement, 1000);
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
 }
 
 // funcion decrementando las preguntas
@@ -85,9 +85,9 @@ function decrement() {
 
 function stop() {
 
-    // No se lo que me hace esto VVV
-    //  Clears intervalId
-    // clearInterval(intervalId);
+
+  
+    clearInterval(intervalId);
 }
 
     // https://www.w3schools.com/jquery/eff_hide.asp para esconder los resultados
@@ -105,7 +105,7 @@ function stop() {
     $("#resultsMessage").html("All Done!");
     $("#correct").html("Correct Answers: " + correctAnswers);
     $("#incorrect").html("wrong Answers: " + wrongAnswers);
-    $("#noanswer").html("noAnswer: " + noAnswer);
+    $("#noAnswer").html("noAnswer: " + noAnswer);
 }
 
 // mantiene score
