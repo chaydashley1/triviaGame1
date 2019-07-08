@@ -12,11 +12,11 @@ var noAnswer = 0;
 var questions = [{
     question: "Who is the administrator of the office?",
     namesAnswer: ["Jim","Pam","Kevin", "Dwaight", "Michael"],
-    answer: 4
+    answer: "4"
 },{
     question: "Who like cats in the Office?",
     namesAnswer: ["Pam","Kevin", "Dwaight", "Angela","Oscar"],
-    answer: 4
+    answer: "3"
 },
 ];
 
@@ -34,21 +34,19 @@ $("#start").on("click", function() {
     run();
    
     // Question 1 ------ NO ENTIENDO DESPUES DEL INPUT LO QUE HACE
-  
-    for(i = 0; i < questions.length; i++)
-    {
-        $("#question"+(i+1)).html("<h2>" + questions[i].question + "</h2>");
-        $("#answer"+(i+1)).html("<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[i] + "</label>"
-            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[1] + "</label>"
-            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[2] + "</label>"
-            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[3] + "</label>"
-            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[4] + "</label><br><br>"
-        );
-    }
-  
- 
-    
-    // enviarInfo Tiene que ser invisible para que se vea despues
+	
+	for(i = 0; i < questions.length; i++)
+	{
+		$("#question"+(i+1)).html("<h2>" + questions[i].question + "</h2>");
+		inputstring = "";
+		for(j = 0; j < questions[i].namesAnswer.length; ++j)
+		{
+			inputstring+="<input type='radio' name='answer" +(i+1)+ "' value='"+j+"'> " + questions[i].namesAnswer[j];
+		}
+		$("#answer"+(i+1)).html(inputstring+"<br><br>");
+	}
+
+    // enviarInfo
     $("#submit").html("<button id='done' class='btn'>Done!</button>");
 
 
@@ -106,8 +104,8 @@ function stop() {
 
     $("#resultsMessage").html("All Done!");
     $("#correct").html("Correct Answers: " + correctAnswers);
-    $("#wrong").html("wrong Answers: " + wrongAnswers);
-    $("#noAnswer").html("noAnswer: " + noAnswer);
+    $("#incorrect").html("wrong Answers: " + wrongAnswers);
+    $("#noanswer").html("noAnswer: " + noAnswer);
 }
 
 // mantiene score
@@ -115,42 +113,12 @@ function stop() {
 
 function keepingScore() {
 
-    var userAnswer1 = $("input[name='answer1']:checked").val();
-    var userAnswer2 = $("input[name='answer2']:checked").val();
-  
-
-    // Question 1
-    if (userAnswer1 === undefined) {
-
-        noAnswer++;
-    }
-    else if (userAnswer1 == questions[4].answer) {
-
-        correctAnswers++;
-    }
-    else {
-
-        wrongAnswers++;
-    }
-
-    // Question 2
-    if (userAnswer2 === undefined) {
-
-        noAnswer++;
-    }
-    else if (userAnswer2 == questions[4].answer) {
-
-        correctAnswers++;
-    }
-    else {
-
-        wrongAnswers++;
-    }
-
-  
-
-
-
-   
-
+	for(i = 0; i< questions.length; ++i)
+	{
+		var answ = $("input[name='answer"+(i+1)+"']:checked").val();
+		console.log(answ);
+		if(answ === undefined) ++noAnswer;
+		else if(answ === questions[i].answer) ++correctAnswers;
+		else ++wrongAnswers;
+	}
 }
