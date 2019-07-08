@@ -17,6 +17,14 @@ var questions = [{
     question: "Who like cats in the Office?",
     namesAnswer: ["Pam","Kevin", "Dwaight", "Angela","Oscar"],
     answer: "3"
+},{
+    question: "What type of farm does Dwight own?",
+    namesAnswer: ["Bear Farm","Beet Farm", "Bettle Farm", "Carrot Farm"],
+    answer: "1"
+},{
+    question: "Where did Andy Bernard sail his parents' yacht to??",
+    namesAnswer: ["Bermuda","Greece", "Virgin Islands", "Jamaica"],
+    answer: "0"
 },
 ];
 
@@ -104,8 +112,8 @@ function stop() {
 
     $("#resultsMessage").html("All Done!");
     $("#correct").html("Correct Answers: " + correctAnswers);
-    $("#incorrect").html("wrong Answers: " + wrongAnswers);
-    $("#noAnswer").html("noAnswer: " + noAnswer);
+    $("#incorrect").html("Wrong Answers: " + wrongAnswers);
+    $("#noAnswer").html("No Answers: " + noAnswer);
 }
 
 // mantiene score
