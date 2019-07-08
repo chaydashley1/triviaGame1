@@ -45,7 +45,7 @@ $("#start").on("click", function() {
 	
 	for(i = 0; i < questions.length; i++)
 	{
-		$("#question"+(i+1)).html("<h2>" + questions[i].question + "</h2>");
+		$("#question"+(i+1)).html("<h3>" + questions[i].question + "</h3>");
 		inputstring = "";
 		for(j = 0; j < questions[i].namesAnswer.length; ++j)
 		{
@@ -99,6 +99,7 @@ function stop() {
 }
 
     // https://www.w3schools.com/jquery/eff_hide.asp para esconder los resultados
+
     function resultFinal() {
     $("#time").hide();
     $("#question1").hide();
@@ -107,6 +108,10 @@ function stop() {
     $("#answer2").hide();
     $("#question3").hide();
     $("#answer3").hide();
+    $("#question4").hide();
+    $("#answer4").hide();
+
+  
   
     $("#submit").hide();
 
