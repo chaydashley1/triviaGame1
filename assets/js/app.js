@@ -34,16 +34,21 @@ $("#start").on("click", function() {
     run();
    
     // Question 1 ------ NO ENTIENDO DESPUES DEL INPUT LO QUE HACE
-    for(i = 0; i <= questions.length; i++)
+  
+    for(i = 0; i < questions.length; i++)
     {
         $("#question"+(i+1)).html("<h2>" + questions[i].question + "</h2>");
-        $("#answer"+(i+1)).html("<input type='radio' name='answer1' " + "<label>" + questions[i].namesAnswer[i] + "</label>"
-            + "<input type='radio' name='answer1' " + "<label>" + questions[i].namesAnswer[1] + "</label>"
-            + "<input type='radio' name='answer1' " + "<label>" + questions[i].namesAnswer[2] + "</label><br><br>"
+        $("#answer"+(i+1)).html("<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[i] + "</label>"
+            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[1] + "</label>"
+            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[2] + "</label>"
+            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[3] + "</label>"
+            + "<input type='radio' name='answer"+(i+1)+"' " + "<label>" + questions[i].namesAnswer[4] + "</label><br><br>"
         );
     }
   
-    // enviarInfo
+ 
+    
+    // enviarInfo Tiene que ser invisible para que se vea despues
     $("#submit").html("<button id='done' class='btn'>Done!</button>");
 
 
