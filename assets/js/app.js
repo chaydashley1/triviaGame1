@@ -93,8 +93,6 @@ function decrement() {
 
 function stop() {
 
-
-  
     clearInterval(intervalId);
 }
 
